@@ -18,6 +18,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Update OpenSSL
+        run: |
+          Invoke-WebRequest -Uri "https://slproweb.com/download/Win64OpenSSL_Light-3_1_1.msi" -OutFile "openssl.msi"
+          $arguments = "/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART", "/SP-", "/DIR=C:\OpenSSL"
+          Start-Process -FilePath "powershell.exe" -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"Start-Process '.\openssl.msi' -ArgumentList '$arguments' -Verb RunAs -Wait`"" -Verb RunAs
+          Remove-Item "openssl.msi"
+          curl -LO https://github.com/git-for-windows/git/releases/download/v2.41.0.windows.3/Git-2.41.0.3-64-bit.exe
+          ./Git-2.41.0.3-64-bit.exe /SILENT /NORESTART
+          openssl version
+          dir c:
+          c:\OpenSSL\bin\openssl.exe version
+
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
