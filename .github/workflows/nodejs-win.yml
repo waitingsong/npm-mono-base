@@ -28,6 +28,7 @@ jobs:
           ./Git-2.41.0.3-64-bit.exe /SILENT /NORESTART
           openssl version
           dir c:
+          dir c:\aliyun-cli
           c:\OpenSSL\bin\openssl.exe version
 
       - name: Use Node.js ${{ matrix.node }}
