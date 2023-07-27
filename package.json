@@ -12,6 +12,7 @@
     "@midwayjs/web": "^3.11.6",
     "@rollup/plugin-commonjs": "25",
     "@rollup/plugin-node-resolve": "15",
+    "@swc/core": "1",
     "@types/mocha": "10",
     "@types/node": "20",
     "@waiting/eslint-config": "^8.8.0",
