@@ -16,7 +16,7 @@
     "@waiting/shared-core": "^22.0.0",
     "@waiting/shared-types": "^22.0.0",
     "autocannon": "7",
-    "c8": "^8.0.1",
+    "c8": "^9.1.0",
     "coveralls": "3",
     "cross-env": "7",
     "debug": "^4.3.4",
