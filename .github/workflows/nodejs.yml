@@ -71,7 +71,6 @@ jobs:
           POSTGRES_PORT: 5432
           POSTGRES_DB: db_ci_test
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
           PGPASSWORD: postgres
 
       - name: Install Dependencies
@@ -115,8 +114,10 @@ jobs:
           POSTGRES_PORT: 5432
           POSTGRES_DB: db_ci_test
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PWD: postgres
           PGPASSWORD: postgres
+          DBUSER: dbuser
+          DBUSER_PWD: dbuser
 
       - name: Testing
         run: |
@@ -131,9 +132,8 @@ jobs:
           POSTGRES_HOST: postgres
           POSTGRES_PORT: 5432
           POSTGRES_DB: db_ci_test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          PGPASSWORD: postgres
+          POSTGRES_USER: dbuser
+          POSTGRES_PWD: dbuser
           # redis
           REDIS_HOST: redis
           REDIS_PORT: 6379
