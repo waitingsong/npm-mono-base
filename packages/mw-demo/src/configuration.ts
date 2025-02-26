@@ -1,4 +1,3 @@
-/* eslint-disable import/max-dependencies */
 import assert from 'node:assert'
 
 import {
@@ -14,8 +13,8 @@ import type { ILifeCycle, ILogger } from '@midwayjs/core'
 import { TraceInit } from '@mwcp/otel'
 import {
   MConfig,
-  registerMiddleware,
   deleteRouter,
+  registerMiddleware,
 } from '@mwcp/share'
 import type { Application, IMidwayContainer } from '@mwcp/share'
 
@@ -80,5 +79,18 @@ export class AutoConfiguration implements ILifeCycle {
     this.logger.info(`[${ConfigKey.componentName}] onReady`)
   }
 
+  async onStop(container: IMidwayContainer): Promise<void> {
+    void container
+    this.logger.info(`[${ConfigKey.componentName}] stopping`)
+
+    // const out = 10_000
+    // const p1 = new Promise<void>(done => setTimeout(done, out))
+    // const p2 = this.dbSourceManager.stop()
+    // await Promise.race([p1, p2])
+    //   .catch((ex: Error) => {
+    //     console.error(ex.message)
+    //   })
+    this.logger.info(`[${ConfigKey.componentName}] stopped`)
+  }
 }
 
